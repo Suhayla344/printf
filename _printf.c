@@ -1,12 +1,12 @@
 #include "main.h"
 
-void print_buffer(char buffer[], int *buff_ind0;
+void print_buffer(char buffer[], int *buff_ind);
 /**
  * _printf - function
  * @format: format
  * Return: Printed
  */
-int _printf(const char *format, ...)
+int _printf(const char *format, ...);
 {
 	int i, printed = 0, printed_chars = 0;
 	int flags, width, precision, size, buff_ind = 0;
