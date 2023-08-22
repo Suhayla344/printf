@@ -49,26 +49,32 @@ int print_string(va_list types, char buffer[],
 	}
 
 	while (str[length] != '\0')
+	{
 		length++;
-
+	}
 		if (precision >= 0 && precision < length)
+		{
 			length = precision;
-
+		}
 			if (width > length)
 			{
 				if (flags & F_MINUS)
 				{
 					write(1, &str[0], length);
 					for (i = width - length; i > 0; i--)
+					{
 						write(1, " ", 1);
 						return (width);
+					}
 				}
 				else
 				{
 					for (i = width - length; i > 0; i--)
+					{
 						write(1, " ", 1);
 						write(1, &str[0], length);
 						return (width);
+					}
 				}
 			}
 
@@ -119,11 +125,12 @@ int print_int(va_list types, char buffer[],
 	n = convert_size_number(n, size);
 
 	if (n == 0)
+	{
 		buffer[i--] = '0';
 
 		buffer[BUFF_SIZE - 1] = '\0';
 		num = (unsigned long int)n;
-
+	}
 		if (n < 0)
 		{
 			num = (unsigned long int)((-1) * n);

@@ -24,8 +24,9 @@ int print_pointer(va_list types, char buffer[],
 	UNUSED(size);
 
 	if (addrs == NULL)
+	{
 		return (write(1, "(nil)", 5));
-
+	}
 		buffer[BUFF_SIZE - 1] = '\0';
 		UNUSED(precision);
 
@@ -37,14 +38,20 @@ int print_pointer(va_list types, char buffer[],
 			num_addrs /= 16;
 			length++;
 		}
+
 		if ((flags & F_ZERO) && !(flags & F_MINUS))
+		{
 			padd = '0';
+		}
 			if (flags & F_PLUS)
+			{
 				extra_c = '+', length++;
+			}
 				else if (flags & F_SPACE)
+				{
 					extra_c = ' ', length++;
 					ind++;
-
+				}
 					/*return (write(1, &buffer[i], BUFF_SIZE - i - 1));*/
 					return (write_pointer(buffer, ind, length,
 					width, flags, padd, extra_c, padd_start));
@@ -73,8 +80,9 @@ int print_non_printable(va_list types, char buffer[],
 	UNUSED(size);
 
 	if (str == NULL)
+	{
 		return (write(1, "(null)", 6));
-
+	}
 		while (str[i] != '\0')
 		{
 			if (is_printable(str[i]))
@@ -154,6 +162,7 @@ int print_rot13string(va_list types, char buffer[],
 	char out[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
 	str = va_arg(types, char *);
+
 	UNUSED(buffer);
 	UNUSED(flags);
 	UNUSED(width);
@@ -161,7 +170,10 @@ int print_rot13string(va_list types, char buffer[],
 	UNUSED(size);
 
 	if (str == NULL)
+	{
 		str = "(AHYY)";
+	}
+
 		for (i = 0; str[i]; i++)
 		{
 			for (j = 0; in[j]; j++)
