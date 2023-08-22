@@ -49,9 +49,11 @@ int print_string(va_list types, char buffer[],
 	}
 
 	while (str[length] != '\0')
+	{
 		length++;
 
 		if (precision >= 0 && precision < length)
+		{
 			length = precision;
 
 			if (width > length)
@@ -71,7 +73,8 @@ int print_string(va_list types, char buffer[],
 					return (width);
 				}
 			}
-
+		}
+	}
 			return (write(1, str, length));
 }
 /************************* PRINT PERCENT SIGN *************************/
