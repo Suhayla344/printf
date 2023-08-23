@@ -29,13 +29,13 @@ int append_hexa_code(char ascii_code, char buffer[], int i)
 	if (ascii_code < 0)
 		ascii_code *= -1;
 
-		buffer[i++] = '\\';
-		buffer[i++] = 'x';
+	buffer[i++] = '\\';
+	buffer[i++] = 'x';
 
-		buffer[i++] = map_to[ascii_code / 16];
-		buffer[i] = map_to[ascii_code % 16];
+	buffer[i++] = map_to[ascii_code / 16];
+	buffer[i] = map_to[ascii_code % 16];
 
-		return (3);
+	return (3);
 }
 
 /**
